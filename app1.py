@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 model = joblib.load('house_model.pkl')
-all_features = joblib.load('all_features.pkl')
+all_features = joblib.load('all_feat.pkl')
 st.title("House Prediction App")
 st.write("Enter the details of the house to predict its price.")
 
