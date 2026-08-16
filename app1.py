@@ -2,18 +2,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-model = joblib.load('house_model.pk1')
-all_features = joblib.load('all_features.pk1')
+model = joblib.load('house_model.pkl')
+all_features = joblib.load('all_features.pkl')
 st.title("House Prediction App")
 st.write("Enter the details of the house to predict its price.")
 
 lot_area= st.number_input("Lot Area (in square feet):",min_value=100, max_value=100000, value=5000)
-overall_qual=st.slider_input("Overall Quality (1-10):", min_value=1, max_value=10, value=5)
+overall_qual=st.slider("Overall Quality (1-10):", min_value=1, max_value=10, value=5)
 year_built=st.number_input("Year Built:", min_value=1800,max_value=2024, value=2000)
 total_bsmt_sf =st.number_input("Total Basement Area (in square feet):", min_value=0, value=1000)
 
 # Create a DataFrame with the input features
-gr_liv_area = st.number_input("Above Grade Living Area (in square feet):", min_value=0, value=1500)
+gr_liv_area = st.number_input("Above Grade Living Area (sq ft):", min_value=300, max_value=10000, value=1500)
 user_input = {
     'LotArea': lot_area,
     'Overall Qual': overall_qual,
